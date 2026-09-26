@@ -26,6 +26,10 @@
             <span>片段数</span>
             <strong id="segmentCount">0</strong>
           </div>
+          <div>
+            <span>待清洁登记</span>
+            <strong id="pendingCleanCount">0</strong>
+          </div>
         </div>
       </header>
 
@@ -63,6 +67,13 @@
             <label>
               时长秒数
               <input id="durationInput" required type="number" min="1" value="12" />
+            </label>
+            <label>
+              放映机
+              <select id="projectorInput">
+                <option value="甲机">甲机</option>
+                <option value="乙机">乙机</option>
+              </select>
             </label>
             <label>
               颜色偏移
@@ -103,6 +114,13 @@
           </div>
           <div id="segmentList" class="segment-list"></div>
         </section>
+
+        <aside class="panel machine-panel">
+          <h2>放映机与清洁</h2>
+          <div id="machineStatus" class="machine-status"></div>
+          <h3>清洁记录</h3>
+          <div id="cleaningList" class="cleaning-list"></div>
+        </aside>
 
         <aside class="panel warning-panel">
           <h2>试映前核对</h2>

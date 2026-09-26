@@ -320,6 +320,195 @@ label {
   line-height: 1.5;
 }
 
+/* 机位状态条 */
+.machine-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.machine-card {
+  display: grid;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(248, 247, 242, 0.96);
+  box-shadow: var(--shadow);
+  padding: 12px 14px;
+}
+
+.machine-card.blocked {
+  border-color: rgba(181, 77, 72, 0.55);
+  background: rgba(181, 77, 72, 0.06);
+}
+
+.machine-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.machine-head strong {
+  font-size: 18px;
+}
+
+.machine-status {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.machine-card.blocked .machine-status {
+  color: var(--red);
+}
+
+.machine-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(31, 36, 40, 0.12);
+  overflow: hidden;
+}
+
+.machine-bar span {
+  display: block;
+  height: 100%;
+  background: var(--cyan);
+}
+
+.machine-card.blocked .machine-bar span {
+  background: var(--red);
+}
+
+.machine-meta,
+.machine-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.machine-foot button {
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* 片段卡片上的机位与清洁状态 */
+.tag.machine-a {
+  background: rgba(212, 155, 53, 0.18);
+  color: #8a6414;
+}
+
+.tag.machine-b {
+  background: rgba(52, 125, 137, 0.14);
+  color: var(--cyan);
+}
+
+.tag.blocked {
+  background: rgba(181, 77, 72, 0.16);
+  color: var(--red);
+}
+
+.tag.waiting {
+  background: rgba(105, 113, 121, 0.16);
+  color: var(--muted);
+}
+
+.tag.cleaned {
+  background: rgba(77, 118, 86, 0.16);
+  color: var(--green);
+}
+
+.segment-meta {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.segment-actions .text-btn {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* 录入表单按钮行 */
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+/* 片门清洁 */
+.clean-title {
+  margin-top: 20px;
+}
+
+.cleaning-alerts {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.cleaning-alert {
+  border: 1px solid rgba(181, 77, 72, 0.28);
+  border-radius: 8px;
+  background: rgba(181, 77, 72, 0.08);
+  padding: 10px;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.cleaning-form {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.cleaning-list {
+  display: grid;
+  gap: 8px;
+}
+
+.cleaning-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf7;
+  padding: 8px 10px;
+}
+
+.cleaning-item .who {
+  display: grid;
+  gap: 2px;
+  font-size: 13px;
+}
+
+.cleaning-item small {
+  color: var(--muted);
+}
+
+.cleaning-item button {
+  width: 32px;
+  height: 30px;
+  padding: 0;
+}
+
+.warning-item.cleaning {
+  border-color: rgba(212, 155, 53, 0.5);
+  background: rgba(212, 155, 53, 0.1);
+}
+
 @media (max-width: 1120px) {
   .hero {
     align-items: stretch;
@@ -337,7 +526,8 @@ label {
     width: min(100vw - 20px, 1420px);
   }
 
-  .hero-stats {
+  .hero-stats,
+  .machine-strip {
     grid-template-columns: 1fr;
   }
 
@@ -346,7 +536,7 @@ label {
   }
 
   .segment-actions {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .segment-actions button {

@@ -52,6 +52,8 @@
         <button id="exportBtn">导出清单</button>
       </section>
 
+      <section class="machine-strip" id="machineStrip" aria-label="机位状态"></section>
+
       <section class="layout">
         <aside class="panel">
           <h2>录入片段</h2>
@@ -63,6 +65,13 @@
             <label>
               时长秒数
               <input id="durationInput" required type="number" min="1" value="12" />
+            </label>
+            <label>
+              放映机位
+              <select id="machineInput">
+                <option value="A">甲机</option>
+                <option value="B">乙机</option>
+              </select>
             </label>
             <label>
               颜色偏移
@@ -92,7 +101,10 @@
               备注
               <textarea id="noteInput" rows="4" placeholder="试映前要留意的画面、接片或声音点"></textarea>
             </label>
-            <button class="primary" type="submit">加入放映清单</button>
+            <div class="form-actions">
+              <button class="primary" id="submitBtn" type="submit">加入放映清单</button>
+              <button type="button" id="cancelEditBtn" hidden>取消修改</button>
+            </div>
           </form>
         </aside>
 
@@ -107,6 +119,28 @@
         <aside class="panel warning-panel">
           <h2>试映前核对</h2>
           <div id="warningList" class="warning-list"></div>
+
+          <h2 class="clean-title">片门清洁</h2>
+          <div id="cleaningAlerts" class="cleaning-alerts"></div>
+          <form id="cleaningForm" class="cleaning-form">
+            <label>
+              机位
+              <select id="cleanMachineInput">
+                <option value="A">甲机</option>
+                <option value="B">乙机</option>
+              </select>
+            </label>
+            <label>
+              清洁人
+              <input id="cleanPersonInput" required placeholder="登记清洁人姓名" />
+            </label>
+            <label>
+              清洁时间
+              <input id="cleanTimeInput" required type="datetime-local" />
+            </label>
+            <button class="primary" type="submit">登记清洁</button>
+          </form>
+          <div id="cleaningList" class="cleaning-list"></div>
         </aside>
       </section>
     </main>
